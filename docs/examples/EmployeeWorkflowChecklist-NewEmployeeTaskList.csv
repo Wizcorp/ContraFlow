@@ -1,0 +1,23 @@
+Task,Description,Owner,Title,Queue,Starts,Due,Note
+Retrieve Employee Code,,rtuser1,Finance Support,Admin,,,Received signed employment notice
+Assign a supervisor,,rtuser1,HR Support,,,,Received signed employment notice
+Create Google Mail Account,,rtuser1,Mail Support,Users,-7,-7,1 week before
+Create HR Account,"Register all the info, including position, time offs, department, etc.",rtuser1,HR Support,Admin,-7,-7,1 week before
+Create RT account,,rtuser1,Admin Support,Users,-7,-7,1 week before
+Assign a desk,Please add a post-it with the name of the new employee,rtuser1,Office Support,Admin,-7,-7,1 week before
+Send an email to ALL informing of the new hiring,"Please include name, job title, where will his/her desk be",rtuser1,HR Support,,-7,-7,1 week before
+Order hardware,"Order the necessary hardware (laptop, screen, mouse)",rtuser1,Office Support,,-7,-7,1 week before
+Contact personal email,Please give temporary credentials to the new employee to his personal email account,rtuser1,Access Support,Admin,-7,-7,1 week before
+Create Calendar Entry,Add an entry to the Google Calendar Job calendar; invite the supervisor/project manager to the entry,rtuser1,Office Support,Admin,-2,-2,2 days before
+Setup Hardware,"Mail  the new employee name, position, email, start date, what PC equipment has been ordered and the due delivery date",rtuser1,Hardware Support,Hardware,-2,-2,2 days before
+"Ensure that the material has arrived, and is physically installed at the assigned desk",,rtuser1,Hardware Support,Admin,-2,-2,2 days before
+Send reminder mail to supervisor or PM,Mail the supervisor/project manager and remind him/her of the start date,rtuser1,Project Management,Admin,-2,-2,2 days before
+Mail user GitHub account and role,"If it is a developer or a sysadmin, mail the GitHub user account, the name of the new employee and his role to HelpDesk",rtuser1,Account Support,Users,-1,-1,1 day before
+Send new Employee Startup guide,"Send an email on his/her Google Mail account, pointing to the
+Startup guide, give timesheet access, ask
+for the developer to register on GitHub and provide a GitHub
+username",rtuser1,Admin Support,Admin,-1,-1,1 day before
+Give access to required Google Drive folders,,rtuser1,Access Support,Admin,0,0,Start day
+Ensure the HR and supervisor/project manager is present to greet the new employee,,rtuser1,HR Support,Admin,0,0,start day
+Assign to desk,,rtuser1,HR Support,,0,0,start day
+Sign the contract and rules of employment document,,rtuser1,HR Support,Admin,0,0,start day

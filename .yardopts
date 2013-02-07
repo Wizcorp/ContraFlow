@@ -1,0 +1,11 @@
+bin/*rb
+lib/**/*.rb
+-m markdown 
+--asset docs:images
+--asset docs/examples:examples
+- 
+README.md
+docs/INSTALL.md
+docs/CONFIG.md
+docs/RT_SETUP.md
+docs/GOOGLE_SETUP.md

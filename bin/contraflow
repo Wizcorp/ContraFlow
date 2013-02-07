@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'pp'
+
+root = File.expand_path('../..', __FILE__)
+require File.join(root, %w[lib contraflow])
+
+data = RTWorkflow::Google.new(GOOGLE).read.data
+rt   = RTWorkflow::RT.new RT_CONFIG
+
+data.each do |tpl_name, tpl_data|
+  print "Uploading #{tpl_name} ..."
+  rt.build(tpl_name, tpl_data).update
+  puts 'OK'
+end
