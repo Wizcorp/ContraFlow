@@ -12,39 +12,6 @@ Generated RT template can have multiple tickets for the same work-flow.
 
 Every ticket in RT template is generated from ERB template, corresponds to single row in respective Goggle Docs worksheet. ERB templates are plain text files stored on a file-system in the project tree (see below).
 
-Naming
------------
-
-- Name of the Google Docs spreadsheet is defined in `./lib/contraflow/config.rb` file:
-
-  ````ruby
-  GOOGLE = { 
-      :document => 'RT Workflow Checklist',
-  ...
-  ````
-  
-  This name is used in the script to look-up spreadsheet by the API, so it must correspond to actual spreadsheet name.
-  
-- Worksheet names, defined in the same file and listed as:
-
-  ````ruby
-  GOOGLE = { 
-      :sheets => [
-          'New Employee Task List',
-          'Leaving Employee Task List'
-      ]
-  ````
-  
-  These names are also used to look up worksheets in the doc and must match.
-  
-- ERB templates are located in `./lib/erb` directory and must correspond to the names of worksheet (case sensitive, including spaces) with adding `.erb` extension at the end. I.e. for the example above, following files exist:
-
-  ````
-  $ tree lib/erb                                
-  lib/erb
-  ├── Leaving\ Employee\ Task\ List.erb
-  └── New\ Employee\ Task\ List.erb
-  ````
   
 Example
 -----------

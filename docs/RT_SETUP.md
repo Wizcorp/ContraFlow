@@ -3,7 +3,7 @@
 RT Setup
 ======================
 
-[Up](CONFIG.md) | [Google](GOOGLE_SETUP.md) 
+[Up](CONFIG.md) 
 
 ## Create Queue ##
 
