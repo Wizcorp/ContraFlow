@@ -1,4 +1,10 @@
 .DS_Store
 .yardoc
 .\#*
-doc
+Gemfile
+Gemfile.lock
+README.md
+version.txt
+bin
+docs
+lib

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Configure RequestTRacker
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Configure RequestTRacker</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>RT Setup</h1>
+
+<p><a href="CONFIG.md">Up</a> </p>
+
+<h2>Create Queue</h2>
+
+<p>For this setup foll wing queues are required:</p>
+
+<ul>
+<li><p>Admin</p></li>
+<li><p>New Employee</p></li>
+<li><p>Leaving  Employee</p></li>
+</ul>
+
+<h2>Create Template With Unique Name</h2>
+
+<p>Each queue will need one template. Template name used for the SQL update statement, so please make sure that name is unique. Template name must correspond to that of Google Doc worksheet.</p>
+
+<h2>Create Queue Custom Fields</h2>
+
+<p>Create custom fields for each queue and set Validation. In our case it is simply se to <em>Mandatory</em>.</p>
+
+<p><img src="images/custom_fields.png" alt="Custom fields"></p>
+
+<hr>
+
+<h3>Employee Name</h3>
+
+<p><img src="images/employee_name.png" alt="Employee name"></p>
+
+<hr>
+
+<h3>Date Fields</h3>
+
+<p>New employee and Leaving employee will need to have different date fields <em>Start date</em> and <em>Leave date</em> fields correspondingly.</p>
+
+<p><img src="images/start_date.png" alt="Start date"></p>
+
+<hr>
+
+<h2>Link template with queue</h2>
+
+<h2>Create Scrip(s)</h2>
+
+<p>First script is required - it creates children tickets in queues. Without this script it will not work.</p>
+
+<p><img src="images/new_employee_scrip.png" alt="New employee scrip"></p>
+
+<hr>
+
+<p>Second one is just a convenience scrip - it will set subject of the ticket if it was omitted.</p>
+
+<p><img src="images/set_subject_if_empty.png" alt="Set subject scrip"></p>
+
+<p>Both queues are required to have these scripts, because they are queue specific.</p>
+
+<hr>
+</div></div>
+
+    <div id="footer">
+  Generated on Fri Feb  8 13:25:35 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
