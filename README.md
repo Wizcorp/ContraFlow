@@ -1,4 +1,6 @@
 
+**Note:** Formatted YARD documentation is available at http://wizcorp.github.com/ContraFlow
+
 Name
 ======================
 
