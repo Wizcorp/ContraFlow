@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Create or edit ERB templates
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Create or edit ERB templates</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>Create or edit ERB templates</h1>
+
+<p><a href="file.CONFIG.html" title="Up">Up</a> | <a href="index.html" title="Top">Top</a></p>
+
+<p>ContraFlow can support multiple work-flows in RT, each work-flow having its own template for tickets generation. </p>
+
+<p>Generated RT template can have multiple tickets for the same work-flow. </p>
+
+<p>Every ticket in RT template is generated from ERB template, corresponds to single row in respective Goggle Docs worksheet. ERB templates are plain text files stored on a file-system in the project tree (see below).</p>
+
+<h2>Example</h2>
+
+<p>Templates are plain text files with both ERB markup and RT &quot;tokens&quot;.</p>
+
+<p>See more about <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html">ERB markup</a></p>
+
+<p>Below is an example of New employee mail ERB template:</p>
+
+<ul>
+<li>Included in <code>&lt;% %&gt;</code> are ERB markup elements, processed by Ruby scripts during generation of RT Templates</li>
+</ul>
+
+<p><strong>Example:</strong> <code>@task</code> below is Ruby variable (Hash).</p>
+
+<pre class="code ruby"><code>  &lt;%= @task['Queue'] ? @task['Queue'] : 'Admin' %&gt;
+</code></pre>
+
+<ul>
+<li>Delimited by <code>{ }</code>&#39;s are RT tokens and functions processed at the time of new tickets creation.</li>
+</ul>
+
+<p><strong>Example:</strong>   Variables below are Perl RT variables</p>
+
+<pre class="code ruby"><code>  Requestor: { $Tickets{'TOP'}-&gt;OwnerObj-&gt;EmailAddress() }
+</code></pre>
+
+<h3>ERB template example</h3>
+
+<p>This is template with some complex markups removed for readability. </p>
+
+<pre class="code ruby"><code>===Create-Ticket: new-employee-&lt;%= @id %&gt;
+Queue: &lt;%= @task['Queue'] ? @task['Queue'] : 'Admin' %&gt; 
+Subject: &lt;%= @task['Task'] %&gt; for the new employee { $Tickets{'TOP'}-&gt;FirstCustomFieldValue('Employee name') }
+Requestor: { $Tickets{'TOP'}-&gt;OwnerObj-&gt;EmailAddress() }
+Parents: { $Tickets{'TOP'}-&gt;Id() }
+Content: 
+
+
+Dear &lt;%= @task['Title'] %&gt;,
+
+Please be informed that new employee { $Tickets{'TOP'}-&gt;FirstCustomFieldValue('Employee name') } 
+is starting at Company on { $Tickets{'TOP'}-&gt;FirstCustomFieldValue('Start date') }.
+
+Please &lt;%= @task['Task'] %&gt; for him/her.
+
+Additional information: &lt;%= @task['Description'] ? @task['Description'] : 'None' %&gt;
+
+This ticket creation was triggered by parent ticket &quot;{$Tickets{'TOP'}-&gt;Subject() }&quot; 
+http://rt.company.com/Ticket/Display.html?id={ $Tickets{'TOP'}-&gt;Id() }, 
+requested by { $Tickets{'TOP'}-&gt;OwnerObj-&gt;EmailAddress() }.
+
+Sincerely,
+Company Request Tracker system.
+</code></pre>
+</div></div>
+
+    <div id="footer">
+  Generated on Fri Feb  8 17:40:01 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
