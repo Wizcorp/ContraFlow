@@ -2,34 +2,16 @@
 target='origin'
 
 
-Kernel.trap("EXIT") do
-  Rake::Task[:final].invoke
-end
-
-task :final do
-  sh "rm -rf #{$temp}"
-end
-
 namespace :pages do
 
-
-  task :tempdir do 
-    $temp = %x{mktemp -d /tmp/yarddocs-XXXX}.chomp.strip
-  end
-
-  task :build => :tempdir do 
-    sh "yard --output-dir #{$temp}"
-    sh "git checkout gh-pages"
-    sh "rm -rf doc && cp -r ${temp} doc"
-    sh "git add doc index.html"
-    sh "git commit -m 'update documentation'"
-
+  task :build do 
+    sh "yard"
+    sh "(cd doc && git add . && git commit -m 'update documentation')"
   end
 
   desc "Push gh-pages branch with latest docs"
   task :publish => :build do 
-    sh "git push #{target} gh-pages"
-    sh "git checkout master"
+    sh "(cd doc && git push #{target} gh-pages)"
   end
 
   namespace :publish do 
