@@ -3,7 +3,7 @@
 RT Setup
 ======================
 
-[Up](CONFIG.md) 
+{file:docs/CONFIG.md Up} | {file:README.md Top}
 
 ## Create Queue ##
 

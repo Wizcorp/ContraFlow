@@ -1,7 +1,6 @@
 
 target='origin'
 
-
 namespace :pages do
 
   task :build do 

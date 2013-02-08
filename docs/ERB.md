@@ -4,7 +4,7 @@
 Create or edit ERB templates
 ======================
 
-[Up](CONFIG.md) 
+{file:docs/CONFIG.md Up} | {file:README.md Top}
 
 ContraFlow can support multiple work-flows in RT, each work-flow having its own template for tickets generation. 
 

@@ -3,7 +3,7 @@
 Google Docs Setup
 ======================
 
-[Up](CONFIG.md)
+{file:docs/CONFIG.md Up} | {file:README.md Top}
 
 
 Example spreadsheets
