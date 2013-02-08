@@ -2,9 +2,9 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  File: Configure Contra Flow
+  Top Level Namespace
   
     &mdash; Documentation by YARD 0.8.3
   
@@ -31,8 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html">Index</a> &raquo; 
-    <span class="title">File: Configure Contra Flow</span>
+    <a href="_index.html">Index</a> &raquo;
+    
+    
+    <span class="title">Top Level Namespace</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -61,22 +63,54 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><p><strong>Configure Contra Flow</strong></p>
+    <div id="content"><h1>Top Level Namespace
+  
+  
+  
+</h1>
 
-<h1>Configuration file</h1>
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+</dl>
+<div class="clear"></div>
 
-<p>All system configuration is done in <code>./lib/contraflow/config.rb</code> file. Constants <code>GOOGLE</code> and <code>RT_CONFIG</code>  responsible for user name and passwords for Google doc and RT correspondingly. </p>
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="ContraFlow.html" title="ContraFlow (module)">ContraFlow</a></span>, <span class='object_link'><a href="RTWorkflow.html" title="RTWorkflow (module)">RTWorkflow</a></span>
+    
+  
+    
+  
+</p>
 
-<p><strong>Example configuration file:</strong></p>
-
-<pre class="code ruby"><code><span class='const'>GOOGLE</span> <span class='op'>=</span> <span class='lbrace'>{</span> 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="GOOGLE-constant" class="">GOOGLE =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span> 
   <span class='symbol'>:document</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RT Workflow Checklist</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
   <span class='symbol'>:sheets</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span>
               <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>New Employee Task List</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
               <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Leaving Employee Task List</span><span class='tstring_end'>'</span></span>
              <span class='rbracket'>]</span>
-<span class='rbrace'>}</span>
-<span class='const'>RT_CONFIG</span> <span class='op'>=</span> <span class='lbrace'>{</span> 
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="RT_CONFIG-constant" class="">RT_CONFIG =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span> 
   <span class='symbol'>:db</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
     <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rt.example.com</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='symbol'>:database</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rt</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
@@ -86,83 +120,24 @@
   <span class='comment'># PATH to erd directory relative to the BASE directory of the
 </span>  <span class='comment'># package
 </span>  <span class='symbol'>:erb</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>erb</span><span class='tstring_end'>&quot;</span></span>
+                                     
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
 
-<span class='rbrace'>}</span>
-</code></pre>
 
-<h1>Naming</h1>
 
-<ul>
-<li><p>Name of the Google Docs spreadsheet is defined in <code>./lib/contraflow/config.rb</code> file:</p>
 
-<pre class="code ruby"><code>GOOGLE = { 
-  :document =&gt; 'RT Workflow Checklist',
-...
-</code></pre>
 
-<p>This name is used in the script to look-up spreadsheet by the API, so it must correspond to actual spreadsheet name.</p></li>
-<li><p>Worksheet names, defined in the same file and listed as:</p>
 
-<pre class="code ruby"><code>GOOGLE = { 
-  :sheets =&gt; [
-      'New Employee Task List',
-      'Leaving Employee Task List'
-  ]
-</code></pre>
 
-<p>These names are also used to look up worksheets in the doc and must match.</p></li>
-<li><p>ERB templates are located in <code>./lib/erb</code> directory and must correspond to the names of worksheet (case sensitive, including spaces) with adding <code>.erb</code> extension at the end. I.e. for the example above, following files exist:</p>
 
-<pre class="code ruby"><code>$ tree lib/erb                                
-lib/erb
-├── Leaving\ Employee\ Task\ List.erb
-└── New\ Employee\ Task\ List.erb
-</code></pre></li>
-<li><p>RT Templates must be named exactly like Google Docs worksheet, for the given example, 2 templates need to exist in  RT each one in its corresponding queue:</p>
 
-<pre class="code ruby"><code><span class='const'>Leaving</span> <span class='const'>Employee</span> <span class='const'>Task</span> <span class='const'>List</span>
-<span class='const'>New</span> <span class='const'>Employee</span> <span class='const'>Task</span> <span class='const'>List</span>
-</code></pre></li>
-</ul>
-
-<h1>Permissions</h1>
-
-<h2>MySQL</h2>
-
-<p>MySQL user must have grants to update column <code>Content</code> in table <code>Templates</code>. </p>
-
-<pre class="code ruby"><code>use rt;
-grant select(id, Name, Content), update(Content) on rt.Templates to 'template_update'@'%' identified by '&lt;SECRET&gt;&gt;';
-flush privileges;
-</code></pre>
-
-<h2>Google Docs</h2>
-
-<p>For Google doc share your document with user and set permission to read-write. </p>
-
-<blockquote>
-<p>TODO: write permission should not be required, but current Ruby API to Google Docs is not able to read spreadsheet with RO permission only.</p>
-</blockquote>
-
-<h1>Configuration</h1>
-
-<h2>RT</h2>
-
-<p>In Request Tracker you need to create Queues, Templates and Script in order for this workflow to function.</p>
-
-<p>See <a href="file.RT_SETUP.html" title="Configure RequestTRacker">Configure RequestTRacker</a></p>
-
-<h2>Google Docs Spreadsheet</h2>
-
-<p>See <a href="file.GOOGLE_SETUP.html" title="Setting Google Docs spreadsheet">Setting Google Docs spreadsheet</a></p>
-
-<h2>ERB Templates</h2>
-
-<p>See <a href="file.ERB.html" title="Create or edit ERB templates">Create or edit ERB templates</a></p>
-</div></div>
+</div>
 
     <div id="footer">
-  Generated on Fri Feb  8 16:45:16 2013 by
+  Generated on Fri Feb  8 16:54:18 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

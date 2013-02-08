@@ -1,2 +1,157 @@
-<html><head><meta HTTP-EQUIV="REFRESH" content="0; url=doc/index.html"></head>
-</body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><p><strong>Note:</strong> Formatted YARD documentation is available at <a href="http://wizcorp.github.com/ContraFlow">http://wizcorp.github.com/ContraFlow</a></p>
+
+<h1>Name</h1>
+
+<p><strong>Contra-flow</strong></p>
+
+<blockquote>
+<p><em>Contra-flow</em></p>
+
+<p><em>One of the Four Dread Horsemen of Public Holidays. In spirit, if not in anthropomorphic personification, has a lot in common with Anthony Crowley&#39;s subtle re-engineering of the M25 London Orbital Motorway.</em></p>
+
+<p>Discworld &amp; Terry Pratchett Wiki <a href="http://wiki.lspace.org/mediawiki/index.php/Contra-flow">http://wiki.lspace.org/mediawiki/index.php/Contra-flow</a></p>
+</blockquote>
+
+<h1>Description</h1>
+
+<p>ContraFlow is Ruby library, script and set of templates to create <a href="http://www.bestpractical.com/rt/">Request Tracker</a> ticket templates from Google Docs spreadsheet. It is currently used to setup process for employee joining company or leaving. But it can be used as generic work-flow management system for RT.</p>
+
+<h2>Features</h2>
+
+<p>User facing interface of ContraFlow is Google Docs spreadsheet, where user (for example HR staff) can add or remove tasks as needed. </p>
+
+<p>Script (running from crontab or manually)</p>
+
+<ul>
+<li>Reads data from Google Docs spreadsheet using Google API.</li>
+<li>Parses ERB templates.</li>
+<li>Uploads parsed templates populated with data into the Request Tracker ticket template(s).</li>
+</ul>
+
+<p>When parent RT ticket scrip is activated, RT creates one child ticket for each row in the Google Docs sheet. Created children ticket(s) have subject, body, owner, start and due dates as specified in the Google document. Content of a ticket is defined by ERB template file(s).</p>
+
+<h2>Usage</h2>
+
+<p>After editing Google Docs spreadsheet run script as :</p>
+
+<pre class="code ruby"><code>./bin/contraflow
+</code></pre>
+
+<p>If user name and/or password are not configured in the system (see <a href="#Configuration">Configuration</a> below) script will prompt for these.</p>
+
+<p>Example output</p>
+
+<pre class="code shell"><code>$ ./bin/contraflow
+Enter your Google user name and password:
+Enter your username:  user@example.com
+Enter your password:  *********
+New Employee Task List
+Leaving Employee Task List
+</code></pre>
+
+<p>Script reads spreadsheet from Google Docs spreadsheet, formats template and uploads it into RT4 server&#39;s MySQL database. Names of templates imported to RT are printed out on STDOUT.</p>
+
+<h1>Installation </h1>
+
+<p>See <a href="file.INSTALL.html" title="Installing Contra-Flow">Installing Contra-Flow</a></p>
+
+<h1>Configuration</h1>
+
+<p>See <a href="file.CONFIG.html" title="Configure Contra Flow">Configure Contra Flow</a></p>
+
+<h1>Requirements</h1>
+
+<p>Ruby, MySQL library, for gems see Gemfile.</p>
+
+<p>Install dependencies by <code>bundle install</code>.</p>
+
+<h1>License</h1>
+
+<p>The MIT License</p>
+
+<p>Copyright (C) 2012, 2013 Wizcorp, Inc. <a href="mailto:info@wizcorp.jp">info@wizcorp.jp</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furn    ished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substa    ntial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<h1>Author</h1>
+
+<p>Original author: <a href="http://github.com/dmytro">Dmytro Kovalov</a></p>
+
+<p>October, 2012</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Fri Feb  8 16:54:18 2013 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
