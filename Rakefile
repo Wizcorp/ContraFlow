@@ -14,7 +14,15 @@ namespace :pages do
   end
 
   namespace :publish do 
-    
+
+    desc "Push to both origin and upstream"
+    task :all => :build do 
+      Rake::Task["pages:publish"].invoke 
+      target='upstream'
+      Rake::Task["pages:publish"].reenable
+      Rake::Task["pages:publish"].invoke 
+    end
+
     desc "Push documetnation to upstream repo gh-pages"
     task :upstream => :build do
       target='upstream'
